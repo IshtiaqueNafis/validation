@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>discount</th>
+        <th>Category</th>
+        <th>date</th>
+    </tr>
+    <tr th:each="item: ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.discount}"></td>
+        <td th:text="${item.categoryName.name}"></td>
+        <td th:text="${#dates.format(item.date, 'dd/MM/yyyy')}"></td>
+        <td><a role="button" th:href="@{/(id=${item.id})}">Update</a></td>
+
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome to global superstore</h1>
+<h1>Global Superstore</h1>
+<form method="post" th:action="@{/handlesubmit}" th:object="${item}">
+    <input type="text" placeholder="Enter product name" th:field="*{name}">
+    <input type="text" placeholder="price" th:field="*{price}">
+    <input type="text" placeholder="discount"  th:field="*{discount}">
+    <input type="date" placeholder="enter date"  th:field="*{date}" >
+    <select th:field="*{categoryName}">
+
+        <option   th:each="category: ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
+    </select>
+    <input type="text"   th:field="*{id}" hidden>
+    <input type="submit" placeholder="submit">
+</form>
+</body>
+</html>
